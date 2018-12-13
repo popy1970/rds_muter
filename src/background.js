@@ -12,7 +12,7 @@ function addFirstbutton()
 	$(".muteme").click(function(){
 		mutedUser.push($(this).attr("value"));
 		
-		console.log(mutedUser);
+		
 		$(".gig-comment-username").each(function(){
 			username = $(this).html();
 			if ($.inArray( username, mutedUser ) != -1)
@@ -50,6 +50,14 @@ function addnewbutton()
 						$(this).closest(".gig-comment-self-data").hide();
 						$(this).closest(".gig-comment").find(".gig-comment-photo").hide();
 					}
+					$(".gig-comment-username").each(function(){
+						username = $(this).html();
+						if ($.inArray( username, mutedUser ) != -1)
+						{
+							$(this).closest(".gig-comment-self-data").hide();
+							$(this).closest(".gig-comment").find(".gig-comment-photo").hide();
+						}
+					});
 					});
 		}
 		
