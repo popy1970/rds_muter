@@ -1,1 +1,27 @@
 /*  Read about this page here: https://developer.chrome.com/extensions/content_scripts.html */
+
+.form-popup {
+  display: none;
+  width: 300px;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 999;
+  
+}
+#user_container {
+	max-height: 450px;
+  overflow: auto;
+}
+
+#popup_header{
+	color: #fff;
+    font-family: Frank-Bold,Helvetica,Arial,sans-serif;
+	background: -webkit-gradient(linear,left bottom,left top,color-stop(0,#970000),color-stop(1,#b10b0b));
+	text-align: center;
+}
+
+.usernameListe {
+	padding: 2px;
+}
