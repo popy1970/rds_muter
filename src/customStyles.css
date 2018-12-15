@@ -23,5 +23,29 @@
 }
 
 .usernameListe {
-	padding: 2px;
+	position:relative;
+    padding-bottom: 4px;
+    width:100%;
+    
+}
+
+.btn_list{
+	position:absolute;
+    top:0px;
+    left:0px;
+    width:25%;
+}
+.nickname{
+	width : 67%;
+    margin:0px 27%;
+}
+.count {
+	 position:absolute;
+    top:0px;
+    right:0px;
+    width:6%;
+    color: #b80606;
+    font-size: 12px;
+    font-weight: bold;
+	
 }

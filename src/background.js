@@ -2,6 +2,9 @@
 setTimeout(addFirstbutton, 10000)
 var mutedUser=[];
 var userlist =[];
+var counter;
+var usertocount;
+var countmessage=[];
 function addFirstbutton()
 {
 	
@@ -13,13 +16,26 @@ function addFirstbutton()
 
 	$(".gig-comment-username").each(function(){
 		username = $(this).html();
-		$(this).after('<button class="muteme" value="'+username+'"> Mute </button>');
+		$(this).after('<button class="muteme" value="'+username+'"> Silence </button>');
 		if ($.inArray( username, userlist ) == -1)
 			{
-				
+				countmessage[username] = 0;
 				userlist.push(username);
-				$("#user_container").append('<div class="usernameListe"><button class="muteme" value="'+username+'"> Mute </button>&nbsp;&nbsp;&nbsp;'+username+'</div>');
+				$("#user_container").append('<div class="usernameListe"><button class="muteme btn_list" value="'+username+'"> Silence </button><div class="nickname">'+username+'</div><div data-name="'+username+'" class="count">1</div></div>');
+				//countmessage[username] = 1;
+				//countmessage.push({username:1});
+				//var counter= $(".count").find("[data-name='" + username + "']");
+				//console.log(counter);
+				//counter.innerHTML ="bla";
+				//console.log(countmessage[username]);
 			}
+		//console.log(usertocount);
+		countmessage[username] = countmessage[username] +1;
+		$(".usernameListe").find("[data-name='" + username + "']").html(countmessage[username]);
+	});
+	console.log(countmessage);
+	$.each(countmessage,function (index, value) {
+	    console.log('value='+value);
 	});
 	$(".muteme").click(function(){
 		mutedUser.push($(this).attr("value"));
@@ -53,7 +69,7 @@ function addnewbutton()
 			$(this).closest(".gig-comment").find(".gig-comment-photo").hide();
 		}
 		if ($(this).parent().find(".muteme").length == 0){
-				$(this).after('<button class="muteme" value="'+username+'"> Mute </button>');
+				$(this).after('<button class="muteme" value="'+username+'"> Silence </button>');
 				$(this).parent().find(".muteme").click(function(){
 					mutedUser.push($(this).attr("value"));
 					username = $(this).attr("value");
